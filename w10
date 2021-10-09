@@ -1,5 +1,7 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "width": 800,
+ "height": 600,
  "title": { "text": "Highest Urban Population in Asia" },
  "data": {
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
@@ -30,24 +32,53 @@
     "United Arab Emirates"
     ],
     "name": "Country Selection: "
-    }
-    }
-],
+            }
+        }
+    ],
    
  "transform": [
     {"filter":{ "field":"Urban_Population", "gte": 85}},
     {"filter": "Country_selection == null || datum.Country == Country_selection"}
-],
+    ],
 
- "mark": "point",
  "encoding": {
- "x": { "field": "Country", "type": "nominal" },
- "y": { "field": "Urban_Population", "type": "quantitative"},
+        "x": { "field": "Country", 
+                "type": "nominal"
+            },
+        "y": { "field": "Urban_Population", "type": "quantitative"}
+},
 
-"tooltip": [
-    {"field": "Country", "type": "nominal"},
-    {"field": "Urban_Population", "type": "quantitative", "format": ","}
+
+
+"layer":[{
+
+    "mark": "bar"
+    
+    },
+{
+    "mark": {
+    "type": "text",
+    "align": "right",
+    "baseline": "line-top",
+    "dx": -12,
+    "fontSize": 11,
+    "fontStyle": "italic"
+    },
+    "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+            "condition": {
+                "test": "datum['Country'] == 'Bahrain' || datum['Country'] == 'Japan' || datum['Country'] == 'Qatar' || datum['Country'] == 'Israel'|| datum['Country'] == 'Jordan'|| datum['Country'] == 'Oman'|| datum['Country'] == 'United Arab Emirates'",
+                "value": 1
+                },
+                "value": 0
+    },
+    "tooltip": [
+        {"field": "Country", "type": "nominal"},
+        {"field": "Urban_Population", "type": "quantitative", "format": ","}
+            ]
+        }
+    }
 ]
-   
- }
 }
