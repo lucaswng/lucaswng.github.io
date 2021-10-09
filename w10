@@ -1,0 +1,53 @@
+{
+ "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "title": { "text": "Highest Urban Population in Asia" },
+ "data": {
+    "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
+ },
+ "params": [
+    {
+    "name": "Country_selection",
+    "bind": {
+    "input": "select",
+    "options": [
+    null,
+    "Bahrain",
+    "Israel",
+    "Japan",
+    "Jordan",
+    "Oman",
+    "Qatar",
+    "United Arab Emirates"
+    ],
+    "labels":[
+    "Show All",
+    "Bahrain",
+    "Israel",
+    "Japan",
+    "Jordan",
+    "Oman",
+    "Qatar",
+    "United Arab Emirates"
+    ],
+    "name": "Country Selection: "
+    }
+    }
+],
+   
+ "transform": [
+    {"filter":{ "field":"Urban_Population", "gte": 85}},
+    {"filter": "Country_selection == null || datum.Country == Country_selection"}
+],
+
+ "mark": "point",
+ "encoding": {
+ "x": { "field": "Country", "type": "nominal" },
+ "y": { "field": "Urban_Population", "type": "quantitative"},
+
+"tooltip": [
+    {"field": "Country", "type": "nominal"},
+    {"field": "Urban_Population", "type": "quantitative", "format": ","}
+]
+   
+ }
+}
