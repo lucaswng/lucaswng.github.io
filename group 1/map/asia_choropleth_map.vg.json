@@ -1,0 +1,40 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Population numbers in Asia",
+    "width": 800,
+    "height": 600,
+
+    "projection": {"type": "equirectangular"},
+
+        "data": {
+        "url":  "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv" ,
+        "format": {"type": "topojson", "feature": "asia.topo"}
+        },
+    
+    "transform": [
+    {
+        "lookup": "properties.NAME",
+        "from": {
+        "data": {
+        "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
+        },
+    
+        "key": "Country",
+        "fields": ["Population"]
+        }
+    },
+    {"calculate": "datum.Population + 0.1", "as": "Population"}
+    ],
+    "mark": {"type": "geoshape"}, 
+    "encoding": {
+    "color": {
+    "field": "Population",
+    "type": "quantitative",
+    "scale": {"type": "log"}
+    },
+    "tooltip": [
+    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+    {"field": "Population", "type": "quantitative"}
+    ]
+    }
+   }
