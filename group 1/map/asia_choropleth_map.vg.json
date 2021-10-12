@@ -7,33 +7,34 @@
     "projection": {"type": "equirectangular"},
 
         "data": {
-        "url":  "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv" ,
-        "format": {"type": "topojson", "feature": "asia_map"}
+        "url":  "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/group%201/map/asia_map.topojson",
+        "format": {"type": "topojson", "feature": "asia.geo"}
         },
     
     "transform": [
     {
-        "lookup": "properties.NAME",
+        "lookup": "properties.name",
         "from": {
-        "data": {
-        "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
+            "data": {
+            "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
         },
     
         "key": "Country",
         "fields": ["Population"]
         }
     },
-    {"calculate": "datum.Population + 0.1", "as": "Population"}
+        {"calculate": "datum.Population + 0.1", "as": "Population"}
     ],
     "mark": {"type": "geoshape"}, 
-    "encoding": {
-    "color": {
-    "field": "Population",
-    "type": "quantitative",
-    "scale": {"type": "log"}
-    },
+        "encoding": {
+        "color": {
+        "field": "Population",
+        "type": "quantitative",
+        "scale": {"type": "log"}
+        },
+
     "tooltip": [
-    {"field": "properties.NAME", "type": "nominal", "title": "Country"},
+    {"field": "properties.name", "type": "nominal", "title": "Country"},
     {"field": "Population", "type": "quantitative"}
     ]
     }
