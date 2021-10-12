@@ -2,7 +2,7 @@
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
  "width": 500,
  "height": 500,
- "title": { "text": "Greatest yearly change in population" },
+ "title": { "text": "Correlation between Median Age and Fertility Rates" },
  "data": {
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
  },
