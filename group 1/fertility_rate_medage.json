@@ -1,15 +1,18 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
- "width": 500,
- "height": 500,
+ "width": 300,
+ "height": 300,
  "title": { "text": "Correlation between Median Age and Fertility Rates" },
  "data": {
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
  },
  
- "mark": "point",
+ "mark": "circle",
  "encoding": {
- "x": { "field": "Median_Age", "type": "quantitative" },
- "y": { "field": "Fertility_Rate", "type": "quantitative", "sort": "ascending" }
- }
+   "x": { "field": "Median_Age", "type": "quantitative" },
+   "y": { "field": "Fertility_Rate", "type": "quantitative", "sort": "ascending" },
+   "size": {"aggregate": "count"},
+   "color": {"aggregate": "count"}
+   }
+   
 }

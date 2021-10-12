@@ -7,7 +7,7 @@
  "transform": [
    {"filter":{ "field":"net_change", "gte": 1000}}
 ],
- "mark": "point",
+ "mark": "bar",
  "encoding": {
  "x": { "field": "Country", "type": "nominal" },
  "y": { "field": "net_change", "type": "quantitative", "sort": "ascending" }
