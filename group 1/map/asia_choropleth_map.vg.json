@@ -8,7 +8,7 @@
 
         "data": {
         "url":  "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv" ,
-        "format": {"type": "topojson", "feature": "asia.topo.json"}
+        "format": {"type": "topojson", "feature": "asia_map"}
         },
     
     "transform": [
