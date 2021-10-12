@@ -20,7 +20,7 @@
         },
     
         "key": "Country",
-        "fields": ["Population"]
+        "fields": ["Population", "World_Share"]
         }
     },
         {"calculate": "datum.Population + 0.1", "as": "Population"}
@@ -35,7 +35,8 @@
 
     "tooltip": [
     {"field": "properties.name", "type": "nominal", "title": "Country"},
-    {"field": "Population", "type": "quantitative"}
+    {"field": "Population", "type": "quantitative"},
+    {"field": "World_Share", "type": "quantitative", "title": "Percentage of world population share"}
     ]
     }
    }
