@@ -1,6 +1,6 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
- "title": { "text": "Greatest yearly change in population" },
+ "title": { "text": "Greatest yearly change in population(%)" },
  "data": {
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
  },

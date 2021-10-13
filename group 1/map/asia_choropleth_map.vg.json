@@ -1,6 +1,5 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Population numbers in Asia",
     "width": 800,
     "height": 600,
 
@@ -23,7 +22,7 @@
         "fields": ["Population", "World_Share"]
         }
     },
-        {"calculate": "datum.Population + 0.1", "as": "Population"}
+        {"calculate": "datum.Population", "as": "Population"}
     ],
     "mark": {"type": "geoshape"}, 
         "encoding": {
@@ -35,7 +34,7 @@
 
     "tooltip": [
     {"field": "properties.name", "type": "nominal", "title": "Country"},
-    {"field": "Population", "type": "quantitative"},
+    {"field": "Population", "type": "quantitative", "format": ","},
     {"field": "World_Share", "type": "quantitative", "title": "Percentage of world population share"}
     ]
     }

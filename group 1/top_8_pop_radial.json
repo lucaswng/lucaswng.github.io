@@ -16,9 +16,10 @@
     "layer": [{
       "mark": {"type": "arc", "innerRadius": 20, "stroke": "#fff"}
     },{
-      "mark": {"type": "text", "radiusOffset": 10},
+      "mark": {"type": "text", "radiusOffset": 25},
       "encoding": {
-        "text": {"field": "Country", "type": "nominal"}
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"}
       }
     }],
     "encoding": {
@@ -26,4 +27,5 @@
       "radius": {"field": "Population", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
       "color": {"field": "Country", "type": "nominal", "legend": null}
     }
+    
   }

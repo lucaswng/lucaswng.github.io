@@ -10,7 +10,7 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700;900&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+    <link rel="stylesheet" type="text/css" href="css/style.css" media="all">
 
 </head>
   
@@ -28,39 +28,43 @@
 
   <div class="pure-g">
     <div class="pure-u-1-1">
-      <p>Recording a total population of over 4.6 billion people with the 3rd highest growth rate of 0.83%, Asia is Earth’s largest and most populous continent.</p>
+      <p>Recording a total population of over 4.6 billion people with the 3rd highest growth rate of 0.83%, Asia is Earth’s largest and most populous continent, making up nearly 60% of the world’s population.</p>
     </div>
   </div>
 
     <div class="pure-g">
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-2">
         <div class="description description-left">
           <h2>Population breakdown</h2>
           <p>Excluding Asia’s two most populated nations, Indonesia and Pakistan have the highest populations in Asia. Interestingly, the cumulative world population share of these countries in the top 10 is nearly 5% lower than China’s world population share alone.</p>
         </div>
       </div>
-        <div class="pure-u-2-3">
+        <div class="pure-u-1-2">
           <div id="vis3" class="vis-container"></div>
         </div>
         
     </div>
 
     <div class="pure-g">
-      <div class="pure-u-1-3">
-        <div id="vis2" class="vis-container"></div>
-      </div>
-      <div class="pure-u-2-3">
-        <div class="description description-left">
+      <div class="pure-u-1-2">
+        <div class="description description-right">
           <h2>Variation in population</h2>
-          <p>The first column is used for  description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+          <p>Fertility rates and immigration are two key factors that influence change in a country’s population. Looking at the scatterplot, there is a negative correlation between fertility rates and median age. Majority of the nations lie within 25-35 as median age with fertility rates between 2-3 births per woman.</p>
         </div>
+      </div>
+      <div class="pure-u-1-2">
+        <div id="vis2" class="vis-container"></div>
       </div>
 
     </div>
 
+    <div class="pure-g">
+      <div class="pure-u-1-2">
+        <div id="vis4" class="vis-container"></div>
+      </div>
 
+    </div>
 
-  
   </div>
 
   <script type="text/javascript">
@@ -68,6 +72,7 @@
     var fert_age_vis2 = "./fertility_rate_medage.json";
     var asia_map = "map/asia_choropleth_map.vg.json";
     var top_pop_vis3 = "./top_8_pop_radial.json";
+    var year_change_vis4 = "./yearly_change_pop.json";
     
 
     vegaEmbed('#map', asia_map).then(function(result){
@@ -79,6 +84,9 @@
     }).catch(console.error);
 
     vegaEmbed('#vis3', top_pop_vis3, {"actions": false}).then(function(result){
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', year_change_vis4, {"actions": false}).then(function(result){
     }).catch(console.error);
 
 
