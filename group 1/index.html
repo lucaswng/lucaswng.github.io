@@ -12,7 +12,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
 
-  </head>
+</head>
   
 <body>
   <div id="vis"></div>
@@ -33,14 +33,34 @@
   </div>
 
     <div class="pure-g">
-        <div class="pure-u-1-3">
-          <div id="vis1" class="vis-container"></div>
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <h2>Population breakdown</h2>
+          <p>Excluding Asia’s two most populated nations, Indonesia and Pakistan have the highest populations in Asia. Interestingly, the cumulative world population share of these countries in the top 10 is nearly 5% lower than China’s world population share alone.</p>
         </div>
+      </div>
         <div class="pure-u-2-3">
-          <div id="vis2" class="vis-container"></div>
+          <div id="vis3" class="vis-container"></div>
         </div>
+        
     </div>
 
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+      <div class="pure-u-2-3">
+        <div class="description description-left">
+          <h2>Variation in population</h2>
+          <p>The first column is used for  description while the next two columns are merged and used for visualisation. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Massa sapien faucibus et molestie ac feugiat sed. </p>
+        </div>
+      </div>
+
+    </div>
+
+
+
+  
   </div>
 
   <script type="text/javascript">
@@ -57,6 +77,11 @@
 
     vegaEmbed('#vis2', fert_age_vis2, {"actions": false}).then(function(result){
     }).catch(console.error);
+
+    vegaEmbed('#vis3', top_pop_vis3, {"actions": false}).then(function(result){
+    }).catch(console.error);
+
+
     
 </script>
 </body>
