@@ -1,5 +1,7 @@
 {
  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+ "width": 300,
+ "height": 300,
  "title": { "text": "Greatest yearly change in population(%)" },
  "data": {
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
@@ -7,9 +9,9 @@
  "transform": [
    {"filter":{ "field":"yearly_change", "gte": 1.5}}
 ],
- "mark": "point",
+ "mark": "bar",
  "encoding": {
- "x": { "field": "Country", "type": "nominal" },
- "y": { "field": "yearly_change", "type": "quantitative", "sort": "ascending" }
+ "y": { "field": "Country", "type": "nominal" },
+ "x": { "field": "yearly_change", "type": "quantitative", "sort": "ascending" }
  }
 }

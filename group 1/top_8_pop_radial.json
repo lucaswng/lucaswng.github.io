@@ -19,13 +19,24 @@
       "mark": {"type": "text", "radiusOffset": 25},
       "encoding": {
         "text": {"field": "Country", "type": "nominal"},
-        "color": {"value": "black"}
+        "color": {"value": "black"},
+
+        "tooltip":[
+            {"field": "Country", "type": "nominal"},
+            {"field": "Population", "type": "quantitative", "format": ","}    
+        ]
       }
-    }],
+    }
+    ],
     "encoding": {
       "theta": {"field": "Population", "type": "quantitative", "stack": true},
       "radius": {"field": "Population", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
-      "color": {"field": "Country", "type": "nominal", "legend": null}
+      "color": {"field": "Country", "type": "nominal", "legend": null},
+
+      "tooltip":[
+        {"field": "Country", "type": "nominal"},
+        {"field": "Population", "type": "quantitative", "format": ","} 
+      ] 
     }
     
   }
