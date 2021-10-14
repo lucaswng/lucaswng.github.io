@@ -35,7 +35,8 @@
 
       "tooltip":[
         {"field": "Country", "type": "nominal"},
-        {"field": "Population", "type": "quantitative", "format": ","} 
+        {"field": "Population", "type": "quantitative", "format": ","},
+        {"field": "World_Share", "type": "quantitative", "title": "Percentage of world population share"}
       ] 
     }
     

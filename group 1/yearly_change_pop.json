@@ -7,11 +7,31 @@
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
  },
  "transform": [
-   {"filter":{ "field":"yearly_change", "gte": 1.5}}
+   {"filter":{ "field":"yearly_change", "gte": 2.2}}
 ],
  "mark": "bar",
  "encoding": {
- "y": { "field": "Country", "type": "nominal" },
- "x": { "field": "yearly_change", "type": "quantitative", "sort": "ascending" }
+   "y": { 
+      "field": "Country", 
+      "type": "nominal",
+      "sort":"-x",
+      "axis":{
+         "grid": false
+      }
+   },
+   "x": { 
+      "field": "yearly_change",
+      "title":"Yearly % change in Population",    
+      "type": "quantitative", 
+      "sort": "ascending",
+      "axis":{
+         "grid": false
+      }
+   },
+   "color":{"value": "#399cbd"},
+   "tooltip":[
+      {"field": "Country", "type": "nominal"},
+      {"field": "yearly_change", "type": "quantitative", "title":"Yearly % change in Population"}
+   ]
  }
 }

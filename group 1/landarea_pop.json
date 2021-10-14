@@ -1,0 +1,32 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"},
+    "transform": [{
+      "filter": {"and": [
+        {"field": "Land_Area", "valid": true},
+        {"field": "Population", "valid": true}
+      ]}
+    }],
+    "mark": "rect",
+    "width": 300,
+    "height": 200,
+    "encoding": {
+      "x": {
+        "field": "Land_Area",
+        "type": "quantitative"
+      },
+      "y": {
+        "field": "Population",
+        "type": "quantitative"
+      },
+      "color": {
+        "aggregate": "count",
+        "type": "quantitative"
+      }
+    },
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }

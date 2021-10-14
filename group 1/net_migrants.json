@@ -31,17 +31,14 @@
         "title": "Percentage Change in Migrants",
         "scale": {"padding": 20},
         "axis": {
+            
           "gridColor": {
             "condition": {"test": "datum.value === 0", "value": "black"},
-            "value": "#ddd"
+            "value": null
           }
         }
       },
-      "color": {
-        "condition": {
-          "test": "datum.Per_Net_Migrants < 0",
-            "value": "red"
-        }},
+      
       "tooltip":[
         {"field": "Country", "type": "nominal"},
         {"field": "Per_Net_Migrants", "type": "quantitative", "title": "Percentage change in migrants"} 

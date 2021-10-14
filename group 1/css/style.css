@@ -12,6 +12,7 @@ h1 {
 	bottom: 100px; 
 	left: 100px;
 	right: 100px;
+    
 }
 
 
@@ -30,6 +31,8 @@ body {
 .vis-container {
     width: 100%;
 }
+
+
 
 .description h2,
 h1 {
