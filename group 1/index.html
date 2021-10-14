@@ -57,7 +57,7 @@
 
     <div class="pure-g">
       <div class="pure-u-1-2">
-        <div id="vis4" class="vis-container"></div>
+        <div id="vis5" class="vis-container"></div>
       </div>
       <div class="pure-u-1-2">
         <div id="vis2" class="vis-container"></div>
@@ -73,6 +73,7 @@
     var asia_map = "map/asia_choropleth_map.vg.json";
     var top_pop_vis3 = "./top_8_pop_radial.json";
     var year_change_vis4 = "./yearly_change_pop.json";
+    var netmigrant_vis5 = "./net_migrants.json";
     
 
     vegaEmbed('#map', asia_map).then(function(result){
@@ -87,6 +88,9 @@
     }).catch(console.error);
 
     vegaEmbed('#vis4', year_change_vis4, {"actions": false}).then(function(result){
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', netmigrant_vis5, {"actions": false}).then(function(result){
     }).catch(console.error);
     
 </script>

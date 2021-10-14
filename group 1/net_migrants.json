@@ -1,33 +1,73 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    
-    "data": { "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/Net_Migrants.csv"},
-    "transform": [
-      {"filter": "datum.year == 2000"},
-      {"calculate": "datum.sex == 2 ? 'Female' : 'Male'", "as": "gender"},
-      {"calculate": "datum.sex == 2 ? -datum.people : datum.people", "as": "signed_people"}
-    ],
     "width": 300,
-    "height": 200,
-    "mark": "bar",
+    "height": 300,
+    "title": "Countries with the highest net change in migrants",
+    "description": "A bar chart with negative values. We can hide the axis domain line, and instead use a conditional grid color to draw a zero baseline.",
+    "data": {
+      "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/Net_Migrants.csv"
+    },
+
+    "transform": [
+        {"calculate": "datum.Per_Net_Migrants * 100", "as": "Per_Net_Migrants"},
+        {"filter":"datum.Per_Net_Migrants <= -0.4 || datum.Per_Net_Migrants >= 1"}
+    ],
+
     "encoding": {
       "y": {
-        "field": "age",
-        "axis": null, "sort": "descending"
+        "field": "Country",
+        "type": "nominal",
+        "sort":["Bahrain", "Maldives", "Oman", "Qatar", "Timor-Leste", "Lebanon", "Sri Lanka", "Syria"],
+        "axis": { 
+          "domain": false,
+          "ticks": false,
+          "labelAngle": 0,
+          "labelPadding": 4
+        }
       },
       "x": {
-        "aggregate": "sum", "field": "signed_people",
-        "title": "population",
-        "axis": {"format": "s"}
+        "field": "Per_Net_Migrants",
+        "type": "quantitative",
+        "title": "Percentage Change in Migrants",
+        "scale": {"padding": 20},
+        "axis": {
+          "gridColor": {
+            "condition": {"test": "datum.value === 0", "value": "black"},
+            "value": "#ddd"
+          }
+        }
       },
       "color": {
-        "field": "gender",
-        "scale": {"range": ["#675193", "#ca8861"]},
-        "legend": {"orient": "top", "title": null}
-      }
+        "condition": {
+          "test": "datum.Per_Net_Migrants < 0",
+            "value": "red"
+        }},
+      "tooltip":[
+        {"field": "Country", "type": "nominal"},
+        {"field": "Per_Net_Migrants", "type": "quantitative", "title": "Percentage change in migrants"} 
+      ] 
     },
-    "config": {
-      "view": {"stroke": null},
-      "axis": {"grid": false}
-    }
+    "layer": [
+      {"mark": "bar",
+        "encoding": {
+            "color": {
+                "condition": {
+                  "test": "datum['Per_Net_Migrants'] < 0",
+                    "value": "#FF7F7F"
+                },
+                    "value": "#399cbd"
+                }
+            }
+        },
+      
+      {
+        "mark": {
+          "type": "text",
+          "align": {"expr": "datum.Per_Net_Migrants < 0 ? 'right' : 'left'"},
+          "dx": {"expr": "datum.Per_Net_Migrants < 0 ? -2 : 2"}
+        }
+       
+        }
+        
+    ]
   }

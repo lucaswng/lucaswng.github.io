@@ -9,8 +9,17 @@
  
  "mark": "circle",
  "encoding": {
-   "x": { "field": "Median_Age", "type": "quantitative" },
-   "y": { "field": "Fertility_Rate", "type": "quantitative", "sort": "ascending" },
+   "x": { 
+      "field": "Median_Age", 
+      "title": "Median Age",
+      "type": "quantitative" 
+   },
+   "y": { 
+      "field": "Fertility_Rate", 
+      "title": "Fertility Rate",
+      "type": "quantitative", 
+      "sort": "ascending" 
+   },
    "size": {"aggregate": "count"},
    "color": {"aggregate": "count"}
    }
