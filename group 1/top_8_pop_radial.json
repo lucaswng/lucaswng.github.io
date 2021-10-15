@@ -31,8 +31,16 @@
     "encoding": {
       "theta": {"field": "Population", "type": "quantitative", "stack": true},
       "radius": {"field": "Population", "scale": {"type": "sqrt", "zero": true, "rangeMin": 20}},
-      "color": {"field": "Country", "type": "nominal", "legend": null},
-
+      "color": {
+            "field": "Country", 
+            "type": "nominal", 
+            "legend": null,
+            "scale": {
+                "scheme":"category20b"
+            }
+            
+        },
+      "opacity": {"value": 0.8},
       "tooltip":[
         {"field": "Country", "type": "nominal"},
         {"field": "Population", "type": "quantitative", "format": ","},

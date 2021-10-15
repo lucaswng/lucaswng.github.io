@@ -1,0 +1,106 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+       "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
+    },
+    "concat":[
+    {
+        "layer": [{
+            "mark": "circle",
+ 
+            "encoding": {
+              "x": { 
+                 "field": "Median_Age", 
+                 "title": "Median Age",
+                 "type": "quantitative",
+                 "axis":{
+                    "grid": false
+                 }
+              },
+              "y": { 
+                 "field": "Fertility_Rate", 
+                 "title": "Fertility Rate",
+                 "type": "quantitative", 
+                 "sort": "ascending",
+                 "axis":{
+                    "grid": false
+                 } 
+              },
+              
+              "color": {
+                  "field": "Country", 
+                  "type": "quantitative"
+                }
+            }
+
+    },
+        {
+            "transform": [
+                {"filter":{ "field":"yearly_change", "gte": 1.65}}
+             ],
+
+            "mark": "bar",
+            "params":[
+                {
+                "name": "Country_highlight",
+                "select": {"type": "point", "fields": ["Country"]},
+                "bind": "legend"
+                }
+                ],
+                "encoding": {
+                    "x": { 
+                        "field": "Country", 
+                        "type": "nominal",
+                        "sort":"-y",
+                        "axis":{
+                        "grid": false
+                            }
+                        },
+                    "y": { 
+                        "field": "yearly_change",
+                        "title":"Yearly % change in Population",    
+                        "type": "quantitative", 
+                        "sort": "ascending",
+                        "axis":{
+                            "grid": false
+                            }
+                        },
+                    "color":{
+                        "field": "Country",
+                        "type": "nominal",
+                        "scale": {
+                            "domain":[
+                                "Bahrain",
+                                "Oman",
+                                "Syria",
+                                "State of Palestine",
+                                "Afghanistan",
+                                "Iraq",
+                                "Tajikistan",
+                                "Yemen", "Pakistan", "Timor-Leste", "Nepal", "Maldives",
+                                "Qatar", "Kyrgyzstan", "Mongolia"
+                            ],
+                            "scheme":"category20b"
+                        }
+                    },
+                        "opacity": {
+                            "condition": {"param": "Country_highlight", "value": 0.8},
+                            "value": 0.2
+                        },
+                        
+                    "tooltip":[
+                        {"field": "Country", "type": "nominal"},
+                        {"field": "yearly_change", "type": "quantitative", "title":"Yearly % change in Population"}
+                    ]
+                    }
+        }
+    
+    
+    ]
+
+    }],
+    "resolve": {
+        "legend": {}
+    }
+}
+    
