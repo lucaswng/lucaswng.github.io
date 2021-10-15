@@ -65,7 +65,8 @@
                         "type": "nominal",
                         "sort":"-y",
                         "axis":{
-                        "grid": false
+                            "grid": false,
+                            "labelAngle": -40
                             }
                         },
                     "y": { 
