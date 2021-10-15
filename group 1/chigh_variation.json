@@ -3,11 +3,16 @@
     "data": {
        "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
     },
-    "concat":[
+    "vconcat":[
     {
-        "layer": [{
+            "transform": [
+                {"filter":{"param": "Country_highlight"}}
+            ],
+
+            "width": 300,
+            "height": 300,
+            "title":"Median Age and Fertility Rate of highest growth nations",
             "mark": "circle",
- 
             "encoding": {
               "x": { 
                  "field": "Median_Age", 
@@ -25,21 +30,20 @@
                  "axis":{
                     "grid": false
                  } 
-              },
-              
+              },            
               "color": {
                   "field": "Country", 
-                  "type": "quantitative"
-                }
+                  "type": "nominal"
+                },
+              "tooltip":[
+                {"field": "Country", "type": "nominal"},
+                {"field": "Median_Age", "type":"quantitative","title": "Median Age" },
+                {"field": "Fertility_Rate", "type":"quantitative","title": "Fertility Rate (births per woman)"}
+              ]
             }
 
     },
         {
-            "transform": [
-                {"filter":{ "field":"yearly_change", "gte": 1.65}}
-             ],
-
-            "mark": "bar",
             "params":[
                 {
                 "name": "Country_highlight",
@@ -47,6 +51,14 @@
                 "bind": "legend"
                 }
                 ],
+            "transform": [
+                {"filter":{ "field":"yearly_change", "gte": 1.65}}
+             ],
+            "width":700,
+            "height":300,
+            "title":"Greatest yearly change in population(%)",
+            "mark": "bar",
+            
                 "encoding": {
                     "x": { 
                         "field": "Country", 
@@ -67,6 +79,7 @@
                         },
                     "color":{
                         "field": "Country",
+                        "title":"Select Country",
                         "type": "nominal",
                         "scale": {
                             "domain":[
@@ -96,11 +109,15 @@
         }
     
     
-    ]
-
-    }],
+    ],
     "resolve": {
-        "legend": {}
-    }
+        "legend": {
+          "color": "independent",
+          "size": "independent"
+        }
+      }
+
 }
+    
+
     

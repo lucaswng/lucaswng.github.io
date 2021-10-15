@@ -1,0 +1,35 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    
+    "data": {"url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"},
+    "transform": [{
+      "filter": {"and": [
+        {"field": "Median_Age", "valid": true},
+        {"field": "Fertility_Rate", "valid": true}
+      ]}
+    }],
+    "mark": "square",
+    "width": 300,
+    "height": 300,
+    "encoding": {
+      "x": {
+        "bin": {"maxbins":60},
+        "field": "Median_Age",
+        "type": "quantitative"
+      },
+      "y": {
+        "bin": {"maxbins": 40},
+        "field": "Fertility_Rate",
+        "type": "quantitative"
+      },
+      "color": {
+        "aggregate": "count",
+        "type": "quantitative"
+      }
+    },
+    "config": {
+      "view": {
+        "stroke": "transparent"
+      }
+    }
+  }

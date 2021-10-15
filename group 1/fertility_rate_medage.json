@@ -28,7 +28,12 @@
       } 
    },
    
-   "color": {"aggregate": "count"},
+   "color": {
+         "aggregate": "count",
+         "scale": {
+            
+         }
+            },
    "tooltip":[
 
    ]

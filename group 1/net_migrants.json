@@ -16,6 +16,7 @@
     "encoding": {
       "y": {
         "field": "Country",
+        "title":"",
         "type": "nominal",
         "sort":["Bahrain", "Maldives", "Oman", "Qatar", "Timor-Leste", "Lebanon", "Sri Lanka", "Syria"],
         "axis": { 
