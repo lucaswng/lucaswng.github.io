@@ -27,7 +27,7 @@
          "grid": false
       } 
    },
-   
+   "size":{"aggregate": "count"},
    "color": {
          "aggregate": "count",
          "scale": {
