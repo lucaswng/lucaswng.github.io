@@ -5,15 +5,14 @@
     },
     "vconcat":[
     {
-            "transform": [
-                {"filter":{"param": "Country_highlight"}}
-            ],
-
+            
             "width": 300,
             "height": 300,
             "title":"Median Age and Fertility Rate of highest growth nations",
             "mark": "circle",
+            
             "encoding": {
+              "size":{ "value":65},
               "x": { 
                  "field": "Median_Age", 
                  "title": "Median Age",
@@ -32,29 +31,62 @@
                  } 
               },            
               "color": {
-                  "field": "Country", 
-                  "type": "nominal"
+                  "condition":{
+                      "param": "brush",
+                      "title": "Country",
+                      "field": "Country",
+                      "type": "nominal",
+                      "legend":{
+                          "labelFontSize": 12
+                          
+                      },
+                      "scale": {
+                        "domain":[
+                            "Bahrain",
+                            "Oman",
+                            "Syria",
+                            "State of Palestine",
+                            "Afghanistan",
+                            "Iraq",
+                            "Tajikistan",
+                            "Yemen", "Pakistan", "Timor-Leste", "Nepal", "Maldives",
+                            "Qatar", "Kyrgyzstan", "Mongolia"
+                        ],
+                        "scheme":"category20b"
+                        }
+                    }
+                },
+              "opacity": {
+                    "condition": {"param": "brush", "value": 0.8},
+                    "value": 0.2
                 },
               "tooltip":[
                 {"field": "Country", "type": "nominal"},
                 {"field": "Median_Age", "type":"quantitative","title": "Median Age" },
                 {"field": "Fertility_Rate", "type":"quantitative","title": "Fertility Rate (births per woman)"}
               ]
-            }
-
+            },
+            "params": [{
+                "name": "brush",
+                "select": {"type": "point", "fields": ["Country"]}
+            }],
+            "transform": [
+                {"filter":{"param": "Country_highlight"}}
+            ]
     },
         {
             "params":[
                 {
                 "name": "Country_highlight",
-                "select": {"type": "point", "fields": ["Country"]},
-                "bind": "legend"
+                "select": {"type": "point", "fields": ["Country"]}
                 }
                 ],
             "transform": [
-                {"filter":{ "field":"yearly_change", "gte": 1.65}}
+                {"filter":{ "field":"yearly_change", "gte": 1.65}},
+                {"filter": {"param": "brush"}}
+
              ],
-            "width":700,
+            "width":780,
             "height":300,
             "title":"Greatest yearly change in population(%)",
             "mark": "bar",
@@ -82,20 +114,11 @@
                         "field": "Country",
                         "title":"Select Country",
                         "type": "nominal",
+                        "legend":null,
                         "scale": {
-                            "domain":[
-                                "Bahrain",
-                                "Oman",
-                                "Syria",
-                                "State of Palestine",
-                                "Afghanistan",
-                                "Iraq",
-                                "Tajikistan",
-                                "Yemen", "Pakistan", "Timor-Leste", "Nepal", "Maldives",
-                                "Qatar", "Kyrgyzstan", "Mongolia"
-                            ],
+                            
                             "scheme":"category20b"
-                        }
+                            }
                     },
                         "opacity": {
                             "condition": {"param": "Country_highlight", "value": 0.8},
@@ -107,17 +130,17 @@
                         {"field": "yearly_change", "type": "quantitative", "title":"Yearly % change in Population"}
                     ]
                     }
-        }
+                
+         }
     
     
     ],
     "resolve": {
         "legend": {
-          "color": "independent",
-          "size": "independent"
+            "color": "independent",
+            "size":"independent"
         }
-      }
-
+    }
 }
     
 

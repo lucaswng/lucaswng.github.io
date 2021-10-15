@@ -11,6 +11,11 @@ h2 {
     font-size: 23px;
 }
 
+h3{
+    font-size: 12;
+    opacity: 0.6;
+}
+
 #asia_choropleth_map{
     top:100px;
 	bottom: 100px; 
