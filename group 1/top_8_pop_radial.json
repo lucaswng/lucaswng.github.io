@@ -3,7 +3,7 @@
     "height": 300,
     "width": 300,
     "title": { "text": "Top 8 most populated countries (excl. China & India)" },
-    "description": "Top 8 most populated countries (excl. China & India)",
+    "description": "Radial chart showing the top 8 most populated countries (excl. China & India)",
     "data": {
         "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
     },

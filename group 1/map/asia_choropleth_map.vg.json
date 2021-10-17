@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Choropleth map of Asia highlighting the population of each country and world share percentage",
     "width": 800,
     "height": 600,
     

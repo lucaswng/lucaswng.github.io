@@ -3,6 +3,7 @@
  "width": 300,
  "height": 300,
  "title": { "text": "Correlation between Median Age and Fertility Rates" },
+ "description": "Scatterplot showing the correlation between median age (years) and fertility rates (births per woman) for all countries in Asia",
  "data": {
     "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
  },

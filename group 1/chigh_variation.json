@@ -1,5 +1,6 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Multiple view with cross highlighting. Scatterplot showing the median age and fertility rates of the 15 highest population growth nations. Bar chart showing the 15 highest growth nations.",
     "data": {
        "url": "https://raw.githubusercontent.com/lucaswng/lucaswng.github.io/main/AsiaPopulation2020.csv"
     },
